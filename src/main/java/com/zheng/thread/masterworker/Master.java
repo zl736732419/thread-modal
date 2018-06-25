@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @Author zhenglian
  * @Date 2018/6/25 20:45
  */
-public class Master {
+public abstract class Master {
     /**
      * 任务队列
      */
@@ -103,4 +103,10 @@ public class Master {
     public void setResults(Map<String, Object> results) {
         this.results = results;
     }
+
+    /**
+     * 获取计算结果
+     * @return
+     */
+    public abstract int getResult();
 }
