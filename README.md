@@ -23,6 +23,12 @@ Callable是类似于Runnable的接口，其中call方法类似于run方法，
 这样就可以避免任务的处理响应缓慢的问题。
 
 #### 4.actor模型
+在使用Java进行并发编程时需要特别的关注锁和内存原子性等一系列线程问题，而Actor模型内部的状态由它自己维护即它内部数据只能由它自己修改
+(通过消息传递来进行状态修改)，所以使用Actors模型进行并发编程可以很好地避免这些问题，Actor由状态(state)、
+行为(Behavior)和邮箱(mailBox)三部分组成
+1. 状态(state)：Actor中的状态指的是Actor对象的变量信息，状态由Actor自己管理，避免了并发环境下的锁和内存原子性等问题
+2. 行为(Behavior)：行为指定的是Actor中计算逻辑，通过Actor接收到消息来改变Actor的状态
+3. 邮箱(mailBox)：邮箱是Actor和Actor之间的通信桥梁，邮箱内部通过FIFO消息队列来存储发送方Actor消息，接受方Actor从邮箱队列中获取消息
 
 #### 5.master&worker模型
  Master-Worker模式是常用的并行模式之一，它的核心思想是，系统有两个进程协作工作：
